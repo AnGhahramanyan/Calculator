@@ -8,26 +8,32 @@ namespace Calculator
     {
         public static bool Validate(string formula)
         {
-            Console.WriteLine("Validating " + formula);
-
-            foreach (var s in formula)
+            bool operation = false;
+            for (int i = 0; i < formula.Length; i++)
             {
-                if (!char.IsDigit(s) && (s != '+' && s != '-' && s != '/' && s != '*'))
-
-            
+                char s = formula[i];
+                if (!char.IsDigit(s))
                 {
-                    
-                    return false;
+                    if (!(s == '+' || s == '-' || s == '/' || s == '*'))
+                    {
+                        Console.WriteLine($"Invalid character '{s}'");
+                        return false;
 
+                    }
+                    if (i == formula.Length - 1)
+                    {
+                        Console.WriteLine($"Last character not valid '{s}'");
+                        return false;
+                    }
+                    if (i == 0)
+                    {
+                        Console.WriteLine($"First character not valid '{s}'");
+                        return false;
+                    }
                 }
-               
             }
-
             return true;
-
-
         }
-
     }
 
 
