@@ -8,7 +8,6 @@ namespace Calculator
     {
         public static bool Validate(string formula)
         {
-            bool operation = false;
             for (int i = 0; i < formula.Length; i++)
             {
                 char s = formula[i];
